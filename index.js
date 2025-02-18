@@ -2,7 +2,7 @@
 const commands = {
     "man man": `
 Available commands:<br>
-- <span class="command">man portfolio</span>: Show this help message.<br>
+- <span class="command">man man</span>: Show this help message.<br>
 - <span class="command">cat [file]</span>: Display the contents of a file.<br>
 - <span class="command">ls</span>: List available files/directories.<br>
 - <span class="command">clear</span>: Clear the terminal.<br>
