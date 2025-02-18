@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  /* Black background for CRT effect */
+  color: #00ff00;
+  /* Green text */
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* CRT Monitor Effect */
+.crt {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent),
+    radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent) 50px 50px;
+  background-size: 100px 100px;
+  animation: crt-flicker 0.1s infinite;
+}
+
+/* CRT Flicker Animation */
+@keyframes crt-flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Terminal Window */
+.terminal {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Slightly transparent black */
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  /* Green glow */
+  position: relative;
+}
+
+/* Scanlines Effect */
+.terminal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 100% 2px;
+  pointer-events: none;
+  animation: scanline 5s linear infinite;
+}
+
+/* Scanline Animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Terminal Header */
+.header {
+  padding: 10px;
+  background-color: #111;
+  display: flex;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.red {
+  background-color: #ff5f56;
+}
+
+.yellow {
+  background-color: #ffbd2e;
+}
+
+.green {
+  background-color: #27c93f;
+}
+
+/* Terminal Body */
+.body {
+  padding: 20px;
+}
+
+/* Terminal Output */
+#output {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Input Line */
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #00ff00;
+  margin-right: 5px;
+}
+
+#input {
+  background: none;
+  border: none;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  outline: none;
+  flex-grow: 1;
+}
+
+/* Command Highlight */
+.command {
+  color: #00ff00;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ff00;
+  /* Glowing effect */
+}
+
+/* Link Styles */
+a {
+  color: #00ff00;
+  /* Green color to match the terminal theme */
+  text-decoration: none;
+  /* Remove underline */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: #00cc00;
+  /* Slightly darker green on hover */
+  text-decoration: underline;
+  /* Add underline on hover */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  /* Glowing effect */
+}
+
+a:visited {
+  color: #00ff00;
+  /* Keep the same color for visited links */
+}
