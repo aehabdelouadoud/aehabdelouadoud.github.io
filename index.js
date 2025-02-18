@@ -90,3 +90,47 @@ input.addEventListener("keydown", (e) => {
     }
 });
 
+const asciiArt = document.querySelector(".ascii-art");
+const introArt = document.querySelector(".intro-art");
+
+// ASCII art lines
+const lines = [
+"▄▀█ █▀▀ █░█ ▄▄ ▄▀█ █▄▄ █▀▄ █▀▀ █░░ █▀█ █░█ ▄▀█ █▀▄ █▀█ █░█ █▀▄",
+"█▀█ ██▄ █▀█ ░░ █▀█ █▄█ █▄▀ ██▄ █▄▄ █▄█ █▄█ █▀█ █▄▀ █▄█ █▄█ █▄▀",
+];
+
+const intro = [
+ "Welcome to my portfolio!",
+ "Get ready to dive into the MATRIX",
+ "Type man man to see available commands.",
+];
+
+// Function to simulate typing animation
+function typeText(element, text, speed = 20) {
+  return new Promise((resolve) => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+      } else {
+        clearInterval(interval);
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+// Animate the ASCII art line by line
+async function animateAsciiArt() {
+  for (const line of lines) {
+    await typeText(asciiArt, line + "\n"); // Add a newline after each line
+  }
+  for (const line of intro) {
+    await typeText(introArt, line + "\n"); // Add a newline after each line
+  }
+}
+
+// Start the animation
+animateAsciiArt();
+

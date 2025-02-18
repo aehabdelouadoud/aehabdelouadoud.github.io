@@ -83,16 +83,9 @@ body {
   background: #27c93f;
 }
 
-/* ASCII Art Styling */
-.ascii-art {
-  color: #00ff00;
-  margin: 0;
-  font-size: 12px;
-  text-align: center;
-}
-
 .command {
   color: #00ffff;
+  text-shadow: 0px 0px 5px #00ffff, 0px 0px 10px #00ffff;
   /* Cyan for commands */
 }
 
@@ -112,6 +105,17 @@ body {
   border: none;
   color: #00ff00;
   font-family: "Courier New", monospace;
+  font-size: 16px;
+  outline: none;
+  flex-grow: 1;
+}
+
+#output {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  text-shadow: 0px 0px 5px #00ff00, 0px 0px 10px #00ff00;
   font-size: 16px;
   outline: none;
   flex-grow: 1;
@@ -156,4 +160,31 @@ a:visited {
   color: #000;
   text-shadow: 0 0 5px #000, 0 0 10px #000;
   /* Text color of the selection */
+}
+
+/* ASCII Art Styling */
+.ascii-art {
+  color: #000;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.intro-art {
+  color: #00ff00;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ASCII art container */
+.ascii-art-container {
+  /* Background color of the selection */
+  color: #000;
+  background: #000;
+  text-shadow: 5px 5px 5px #00ff00, 10px 10px 10px #00ff00;
+  white-space: pre;
+  /* Preserve spaces and line breaks */
+  overflow: hidden;
+  /* Hide overflow during animation */
 }
