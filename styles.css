@@ -140,3 +140,20 @@ a:visited {
   color: #00ff00;
   /* Keep the same color for visited links */
 }
+
+/* Change selection color */
+::selection {
+  background: #00ff00;
+  /* Background color of the selection */
+  color: #000;
+  /* Text color of the selection */
+}
+
+/* For Firefox */
+::-moz-selection {
+  background: #00ff00;
+  /* Background color of the selection */
+  color: #000;
+  text-shadow: 0 0 5px #000, 0 0 10px #000;
+  /* Text color of the selection */
+}
