@@ -1,7 +1,7 @@
 /* Define the custom font */
 @font-face {
   font-family: Cherry13;
-  src: url(fonts/TerminessNerdFontMono-Regular.ttf);
+  src: url(assets/fonts/TerminessNerdFontMono-Regular.ttf);
 }
 
 * {
