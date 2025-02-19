@@ -133,3 +133,34 @@ async function animateAsciiArt() {
 
 // Start the animation
 animateAsciiArt();
+
+// Sound
+var audio = document.getElementById("rainSound");
+var playPauseButton = document.getElementById("playPauseButton");
+
+// Start by setting the audio to be unmuted and paused
+audio.muted = false;
+audio.paused = true;
+
+// Event listener for the play/pause/mute/unmute button
+playPauseButton.addEventListener("click", function() {
+  if (audio.paused && !audio.muted) {
+    // If audio is paused and unmuted, play the audio
+    audio.play();
+    playPauseButton.innerHTML = "Pause Rain";  // Change button text
+  } else if (!audio.paused && !audio.muted) {
+    // If audio is playing and unmuted, pause the audio
+    audio.pause();
+    playPauseButton.innerHTML = "Play Rain";   // Change button text
+  } else if (!audio.paused && audio.muted) {
+    // If audio is playing but muted, unmute and keep playing
+    audio.muted = false;
+    playPauseButton.innerHTML = "Mute Rain";  // Change button text
+  } else if (audio.paused && audio.muted) {
+    // If audio is paused and muted, unmute and play the audio
+    audio.muted = false;
+    audio.play();
+    playPauseButton.innerHTML = "Pause Rain";  // Change button text
+  }
+});
+

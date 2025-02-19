@@ -8,15 +8,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class=".crt-text">
+
+  <!-- Hidden audio element -->
+  <audio id="rainSound" style="display:none;">
+    <source src="assets/audio/rain.mp3" type="audio/mp3">
+    <source src="assets/audio/rain.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+
   <!-- CRT Monitor Effect -->
   <div class="crt">
     <div class="terminal">
-      <div class="header">
+      <!-- <div class="header">
         <span class="dot red"></span>
         <span class="dot yellow"></span>
         <span class="dot green"></span>
-      </div>
+      </div> -->
+
+      <!-- Button to interact with the audio -->
+      <button id="playPauseButton">Rain</button>
+
       <div class="body">
         <!-- ASCII Art -->
         <div class="ascii-art-container">
