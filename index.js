@@ -34,10 +34,28 @@ Contact:<br>
 Email: <a href="mailto:aitelhaj.abdelouadoud.reachme@proton.me">aitelhaj.abdelouadoud.reachme@proton.me</a><br>
 GitHub: <a href="https://github.com/aehabdelouadoud">github.com/aehabdelouadoud</a><br>
   `,
+  "cat books": `
+Comming soon!
+  `,
+  "cat sysinfo": `<p>
+           .             ​       aehabdelouadoud@world<br>
+          .c.           ┌───────────────────────────────────┐<br>
+         .ccc.           ​ OS : Ait El Haj Abdelouadoud<br>
+        .lllll.          ​ Kernel :  UNIVERSE0x<br>
+       ..;'olll.         ​ WM : Hyprland <br>
+      .dolllcccl.        ​ Shell : fish<br>
+     .lcc'   'ccc.       ​ Uptime : 19 years<br>
+    .ccc'     'cc:.      ​ CPU : RYŪ 0x1000<br>
+   .cccc'     'c:;..    └───────────────────────────────────┘<br>
+  ."'             '".             "ななころびやおき" 龍<br>
+<br>
+arch in ~ <br>
+  λ echo "少ないほど豊か" > life-motto.txt<br></p>
+  `,
 };
 
 // Available files/directories for autocompletion
-const files = ["about", "projects", "skills", "contact"];
+const files = ["about", "projects", "skills", "contact", "books", "sysinfo"];
 
 // Get DOM elements
 const input = document.getElementById("input");
@@ -100,9 +118,12 @@ const name = [
 ];
 
 const intro = [
-  "Welcome to my portfolio!",
-  "Get ready to dive into the MATRIX",
-  "Type man man to see available commands.",
+  "$ Welcome to my universe 0x01!",
+  "$ Get ready to dive into the MATRIX",
+  "$ before getting into the Matrix",
+  "$ Make sure you are in a quit place, wearing your headphones",
+  "$ click the buttom up so you can hear the beatings of my universe",
+  "$ Type man man to see available commands.",
 ];
 
 // Function to simulate typing animation
@@ -138,9 +159,8 @@ animateAsciiArt();
 var audio = document.getElementById("rainSound");
 var playPauseButton = document.getElementById("playPauseButton");
 
-// Start by setting the audio to be unmuted and paused
-audio.muted = false;
-audio.paused = true;
+// Start by setting the audio to be unmuted
+audio.muted = false;  // No need to set audio.paused as it's false by default
 
 // Event listener for the play/pause/mute/unmute button
 playPauseButton.addEventListener("click", function() {
@@ -148,19 +168,27 @@ playPauseButton.addEventListener("click", function() {
     // If audio is paused and unmuted, play the audio
     audio.play();
     playPauseButton.innerHTML = "Pause Rain";  // Change button text
+    playPauseButton.style.color = "#000";  // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green when playing
   } else if (!audio.paused && !audio.muted) {
     // If audio is playing and unmuted, pause the audio
     audio.pause();
     playPauseButton.innerHTML = "Play Rain";   // Change button text
+    playPauseButton.style.color = "#000";  // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00"; // Reset to default green
   } else if (!audio.paused && audio.muted) {
     // If audio is playing but muted, unmute and keep playing
     audio.muted = false;
     playPauseButton.innerHTML = "Mute Rain";  // Change button text
+    playPauseButton.style.color = "#000";  // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green
   } else if (audio.paused && audio.muted) {
     // If audio is paused and muted, unmute and play the audio
     audio.muted = false;
     audio.play();
     playPauseButton.innerHTML = "Pause Rain";  // Change button text
+    playPauseButton.style.color = "#000";  // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green
   }
 });
-
+//

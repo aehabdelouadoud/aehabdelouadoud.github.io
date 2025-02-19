@@ -204,3 +204,73 @@ a:visited {
   overflow: hidden;
   /* Hide overflow during animation */
 }
+
+/* Bottom */
+/* Base Style for the button */
+#playPauseButton {
+  background-color: #00ff00;
+  text-shadow: 5px 5px 5px #00ff00, 10px 10px 10px #00ff00;
+  /* Green background */
+  color: #000;
+  /* White text */
+  border: none;
+  /* No border */
+  padding: 10px 20px;
+  /* Padding around text */
+  font-size: 12px;
+  /* Text size */
+  font-weight: bold;
+  /* Bold text */
+  border-radius: 8px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  position: relative;
+  /* Necessary for the pseudo-elements */
+  overflow: hidden;
+  /* Hide overflow of the water ripple */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Smooth background color and transform */
+}
+
+/* Water ripple effect using pseudo-element */
+#playPauseButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: 5px 5px 5px #00ff00, 10px 10px 10px #00ff00;
+  /* Ripple color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.8s ease-out;
+  /* Smooth ripple transition */
+}
+
+/* Hover effect */
+#playPauseButton:hover {
+  background-color: transparent;
+  /* Darker green on hover */
+  transform: scale(1.05);
+  /* Slightly increase button size */
+}
+
+/* Active state (when clicked) */
+#playPauseButton:active {
+  background-color: transparent;
+  /* Darker green when clicked */
+  transform: scale(1);
+  /* Normal size when clicked */
+}
+
+/* Create the ripple effect on hover */
+#playPauseButton:hover::before {
+  transform: translate(-50%, -50%) scale(0);
+  /* Shrink the ripple */
+  opacity: 1;
+  /* Make the ripple visible */
+}
