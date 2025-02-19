@@ -32,7 +32,7 @@ Skills:
   "cat contact": `
 Contact:<br>
 Email: <a href="mailto:aitelhaj.abdelouadoud.reachme@proton.me">aitelhaj.abdelouadoud.reachme@proton.me</a><br>
-GitHub: <a href="https://github.com/your-username">github.com/aehabdelouadoud</a><br>
+GitHub: <a href="https://github.com/aehabdelouadoud">github.com/aehabdelouadoud</a><br>
   `,
 };
 

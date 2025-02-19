@@ -132,22 +132,22 @@ a {
 }
 
 a:hover {
-  color: #00cc00;
+  color: #E56F4D;
   /* Slightly darker green on hover */
   text-decoration: underline;
   /* Add underline on hover */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  text-shadow: 0 0 5px #E56F4D, 0 0 10px #E56F4D;
   /* Glowing effect */
 }
 
 a:visited {
-  color: #00ff00;
+  color: #FFBD2E;
   /* Keep the same color for visited links */
 }
 
 /* Change selection color */
 ::selection {
-  background: #00ff00;
+  background: #00FF00;
   /* Background color of the selection */
   color: #000;
   /* Text color of the selection */
@@ -155,7 +155,7 @@ a:visited {
 
 /* For Firefox */
 ::-moz-selection {
-  background: #00ff00;
+  background: #00FF00;
   /* Background color of the selection */
   color: #000;
   text-shadow: 0 0 5px #000, 0 0 10px #000;
