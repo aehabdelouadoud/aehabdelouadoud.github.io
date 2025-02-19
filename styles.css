@@ -1,17 +1,13 @@
 /* Define the custom font */
 @font-face {
-  font-family: 'Cherry13';
-  src: url('fonts/cherry-13-b.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: Cherry13;
+  src: url(fonts/TerminessNerdFontMono-Regular.ttf);
 }
 
-/* Apply the font to your page */
-.crt-text {
-  font-family: 'Cherry13', monospace;
-  font-size: 16px;
-  color: #0f0;
-  background-color: #000;
+* {
+  font-family: Cherry13;
+  font-size: 20px;
+  color: #00ff00;
 }
 
 /* styles.css */
@@ -20,8 +16,8 @@ body {
   padding: 0;
   background: #000;
   color: #00ff00;
-  /* Classic green terminal text */
-  font-family: "Courier New", "Monaco", "Consolas", "Lucida Console", monospace;
+  font-family: "Cherry13";
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,8 +96,8 @@ body {
 }
 
 .command {
-  color: #00ffff;
-  text-shadow: 0px 0px 5px #00ffff, 0px 0px 10px #00ffff;
+  color: #0000ff;
+  text-shadow: 0px 0px 5px #0000ff, 0px 0px 10px #0000ff;
   /* Cyan for commands */
 }
 
@@ -120,8 +116,8 @@ body {
   background: transparent;
   border: none;
   color: #00ff00;
-  font-family: "Courier New", monospace;
-  font-size: 16px;
+  font-family: "Cherry13", monospace;
+  font-size: 20px;
   outline: none;
   flex-grow: 1;
 }
@@ -130,9 +126,9 @@ body {
   background: transparent;
   border: none;
   color: #00ff00;
-  font-family: "Courier New", monospace;
+  font-family: "Cherry13", monospace;
   text-shadow: 0px 0px 5px #00ff00, 0px 0px 10px #00ff00;
-  font-size: 16px;
+  font-size: 20px;
   outline: none;
   flex-grow: 1;
 }
@@ -182,14 +178,14 @@ a:visited {
 .ascii-art {
   color: #000;
   margin: 0;
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
 }
 
 .intro-art {
   color: #00ff00;
   margin: 0;
-  font-size: 12px;
+  font-size: 17px;
   text-align: center;
 }
 
@@ -217,7 +213,7 @@ a:visited {
   /* No border */
   padding: 10px 20px;
   /* Padding around text */
-  font-size: 12px;
+  font-size: 20px;
   /* Text size */
   font-weight: bold;
   /* Bold text */
@@ -253,7 +249,7 @@ a:visited {
 
 /* Hover effect */
 #playPauseButton:hover {
-  background-color: transparent;
+  background-color: #00ff00;
   /* Darker green on hover */
   transform: scale(1.05);
   /* Slightly increase button size */

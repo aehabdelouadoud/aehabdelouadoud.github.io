@@ -8,7 +8,6 @@ Available commands:<br>
 - <span class="command">clear</span>: Clear the terminal.<br>
   `,
   "cat about": `
-About Me:
 I am a very enthusiastic and driven individual with a huge passion
 for IT and Business, complemented by a strong interest in public
 speaking and reading. My commitment to continuous learning and
@@ -18,11 +17,9 @@ riences in contributing meaningfully toward collaborative projects
 and leaving a lasting positive impact.
   `,
   "cat projects": `
-Projects:
 There's no projects yet in the list :(
   `,
   "cat skills": `
-Skills:
 - JavaScript<br>
 - Python<br>
 - Bash<br>
@@ -37,7 +34,13 @@ GitHub: <a href="https://github.com/aehabdelouadoud">github.com/aehabdelouadoud<
   "cat books": `
 Comming soon!
   `,
-  "cat sysinfo": `<p>
+  "cat social": `
+Comming soon!
+  `,
+  "cat edu": `
+Comming soon!
+  `,
+  "cat sysinfo": `
            .             ​       aehabdelouadoud@world<br>
           .c.           ┌───────────────────────────────────┐<br>
          .ccc.           ​ OS : Ait El Haj Abdelouadoud<br>
@@ -50,12 +53,12 @@ Comming soon!
   ."'             '".             "ななころびやおき" 龍<br>
 <br>
 arch in ~ <br>
-  λ echo "少ないほど豊か" > life-motto.txt<br></p>
+  λ echo "少ないほど豊か" > life-motto.txt<br>
   `,
 };
 
 // Available files/directories for autocompletion
-const files = ["about", "projects", "skills", "contact", "books", "sysinfo"];
+const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu"];
 
 // Get DOM elements
 const input = document.getElementById("input");
@@ -118,27 +121,59 @@ const name = [
 ];
 
 const intro = [
-  "$ Welcome to my universe 0x01!",
+  "$ Welcome to my universe 0x01! ",
   "$ Get ready to dive into the MATRIX",
-  "$ before getting into the Matrix",
+  "$ before getting started",
   "$ Make sure you are in a quit place, wearing your headphones",
   "$ click the buttom up so you can hear the beatings of my universe",
   "$ Type man man to see available commands.",
 ];
 
-// Function to simulate typing animation
-function typeText(element, text, speed = 20) {
+// Function to simulate typing animation with optional text replacement
+function typeText(element, text, speed = 20, replaceText = false, delayAfterFirstText = 0) {
   return new Promise((resolve) => {
     let index = 0;
+
+    // Check if the text should replace previous content or be appended
+    if (replaceText) {
+      element.textContent = ''; // Clear previous text if replacing
+    }
+
+    // Print the first part of the text
     const interval = setInterval(() => {
       if (index < text.length) {
-        element.textContent += text.charAt(index);
+        if (!replaceText) {
+          element.textContent += text.charAt(index); // Append text
+        } else {
+          element.textContent = text.substring(0, index + 1); // Replace text
+        }
         index++;
       } else {
         clearInterval(interval);
-        resolve();
+        
+        // Wait for a few milliseconds before resolving (so user can read)
+        setTimeout(() => {
+          resolve();
+        }, delayAfterFirstText); // Delay in milliseconds
       }
     }, speed);
+
+  });
+}
+
+// Function to wait for the spacebar to continue the animation
+function waitForSpaceBar() {
+  return new Promise((resolve) => {
+    // Event listener for spacebar
+    const onKeyPress = (event) => {
+      if (event.key === ' ') {  // Check if the spacebar is pressed
+        document.removeEventListener('keydown', onKeyPress);  // Remove listener
+        resolve();  // Continue the process
+      }
+    };
+    
+    // Add event listener for the spacebar
+    document.addEventListener('keydown', onKeyPress);
   });
 }
 
@@ -148,7 +183,7 @@ async function animateAsciiArt() {
     await typeText(asciiArt, line + "\n"); // Add a newline after each line
   }
   for (const line of intro) {
-    await typeText(introArt, line + "\n"); // Add a newline after each line
+    await typeText(introArt, line + "\n", 70, true, 1500); // Add a newline after each line
   }
 }
 
