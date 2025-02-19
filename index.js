@@ -40,6 +40,18 @@ Comming soon!
   "cat edu": `
 Comming soon!
   `,
+  "cat languages": `
+Comming soon!
+  `,
+  "cat learning": `
+Comming soon!
+  `,
+  "cat working_on": `
+Comming soon!
+  `,
+  "cat life_motto": `
+Comming soon!
+  `,
   "cat sysinfo": `
            .             ​       aehabdelouadoud@world<br>
           .c.           ┌───────────────────────────────────┐<br>
@@ -58,7 +70,7 @@ arch in ~ <br>
 };
 
 // Available files/directories for autocompletion
-const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu"];
+const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu", "languages", "learning", "working_on", "life_motto"];
 
 // Get DOM elements
 const input = document.getElementById("input");
