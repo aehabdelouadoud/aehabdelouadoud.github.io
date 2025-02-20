@@ -327,12 +327,6 @@ body::before {
   z-index: -1;
 }
 
-.terminal:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 20px rgba(0, 255, 0, 0.4);
-  transition: all 0.3s ease;
-}
-
 .crt:hover::before {
   animation: scanline 1s linear infinite;
 }
@@ -366,3 +360,4 @@ body::before {
     transform: translateY(100vh);
   }
 }
+
