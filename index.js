@@ -42,7 +42,7 @@ Comming soon!
   "cat edu": `
 Comming soon!
   `,
-"cat tools": `
+  "cat tools": `
 1. <a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">Neovim</a><br>
 2. <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a><br>
 3. <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a><br>
@@ -80,71 +80,87 @@ Learn.
 <br>
 arch in ~ <br>
   λ echo "少ないほど豊か" > life-motto.txt<br>
-  `,
-};
+  `
+}
 
 // Available files/directories for autocompletion
-const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu", "languages", "learning", "working_on", "life_motto", "tools"];
+const files = [
+  "about",
+  "projects",
+  "skills",
+  "contact",
+  "books",
+  "sysinfo",
+  "social",
+  "edu",
+  "languages",
+  "learning",
+  "working_on",
+  "life_motto",
+  "tools"
+]
 
 // Get DOM elements
-const input = document.getElementById("input");
-const output = document.getElementById("output");
+const input = document.getElementById("input")
+const output = document.getElementById("output")
 
 // Focus on input field
-input.focus();
+input.focus()
 
 // Handle user input
-input.addEventListener("keydown", (e) => {
+input.addEventListener("keydown", e => {
   if (e.key === "Enter") {
-    const command = input.value.trim();
-    input.value = ""; // Clear input field
+    const command = input.value.trim()
+    input.value = "" // Clear input field
 
     // Display the command in the output
-    output.innerHTML += `<p><span class="prompt">$</span> ${command}</p>`;
+    output.innerHTML += `<p><span class="prompt">$</span> ${command}</p>`
 
     // Handle commands
     if (command === "clear") {
-      output.innerHTML = ""; // Clear the terminal
+      output.innerHTML = "" // Clear the terminal
     } else if (command === "ls") {
-      output.innerHTML += `<p>${files.join("    ")}</p>`; // List files
+      output.innerHTML += `<p>${files.join("    ")}</p>` // List files
     } else if (command.startsWith("cat ")) {
-      const file = command.split(" ")[1];
+      const file = command.split(" ")[1]
       if (files.includes(file)) {
-        output.innerHTML += `<p>${commands[`cat ${file}`]}</p>`; // Display file contents
+        output.innerHTML += `<p>${commands[`cat ${file}`]}</p>` // Display file contents
       } else {
-        output.innerHTML += `<p>File not found: ${file}</p>`; // Handle invalid file
+        output.innerHTML += `<p>File not found: ${file}</p>` // Handle invalid file
       }
     } else if (commands[command]) {
-      output.innerHTML += `<p>${commands[command]}</p>`; // Display command output
+      output.innerHTML += `<p>${commands[command]}</p>` // Display command output
     } else {
-      output.innerHTML += `<p>Command not found: ${command}</p>`; // Handle invalid commands
+      output.innerHTML += `<p>Command not found: ${command}</p>` // Handle invalid commands
     }
 
     // Scroll to the bottom of the output
-    output.scrollTop = output.scrollHeight;
+    output.scrollTop = output.scrollHeight
   } else if (e.key === "Tab") {
-    e.preventDefault(); // Prevent default tab behavior
-    const inputText = input.value.trim();
-    const matchingFiles = files.filter((file) => file.startsWith(inputText.split(" ")[1] || ""));
+    e.preventDefault() // Prevent default tab behavior
+    const inputText = input.value.trim()
+    const matchingFiles = files.filter(file =>
+      file.startsWith(inputText.split(" ")[1] || "")
+    )
 
     if (matchingFiles.length === 1) {
       // Autocomplete the file name
-      input.value = `cat ${matchingFiles[0]}`;
+      input.value = `cat ${matchingFiles[0]}`
     } else if (matchingFiles.length > 1) {
       // Show matching files
-      output.innerHTML += `<p>${matchingFiles.join("    ")}</p>`;
+      output.innerHTML += `<p>${matchingFiles.join("    ")}</p>`
     }
   }
-});
+})
 
-const asciiArt = document.querySelector(".ascii-art");
-const introArt = document.querySelector(".intro-art");
+const asciiArt = document.querySelector(".ascii-art")
+const introArt = document.querySelector(".intro-art")
 
 // ASCII art lines
 const name = [
   "▄▀█ █▀▀ █░█ ▄▄ ▄▀█ █▄▄ █▀▄ █▀▀ █░░ █▀█ █░█ ▄▀█ █▀▄ █▀█ █░█ █▀▄",
-  "█▀█ ██▄ █▀█ ░░ █▀█ █▄█ █▄▀ ██▄ █▄▄ █▄█ █▄█ █▀█ █▄▀ █▄█ █▄█ █▄▀",
-];
+  "█▀█ ██▄ █▀█ ░░ █▀█ █▄█ █▄▀ ██▄ █▄▄ █▄█ █▄█ █▀█ █▄▀ █▄█ █▄█ █▄▀"
+]
 
 const intro = [
   "$ Welcome to my universe 0x01! ",
@@ -152,158 +168,165 @@ const intro = [
   "$ before getting started",
   "$ Make sure you are in a quit place, wearing your headphones",
   "$ click the buttom up so you can hear the beatings of my universe",
-  "$ Type man man to see available commands.",
-];
+  "$ Type man man to see available commands."
+]
 
 // Function to simulate typing animation with optional text replacement
-function typeText(element, text, speed = 20, replaceText = false, delayAfterFirstText = 0) {
-  return new Promise((resolve) => {
-    let index = 0;
+function typeText(
+  element,
+  text,
+  speed = 20,
+  replaceText = false,
+  delayAfterFirstText = 0
+) {
+  return new Promise(resolve => {
+    let index = 0
 
     // Check if the text should replace previous content or be appended
     if (replaceText) {
-      element.textContent = ''; // Clear previous text if replacing
+      element.textContent = "" // Clear previous text if replacing
     }
 
     // Print the first part of the text
     const interval = setInterval(() => {
       if (index < text.length) {
         if (!replaceText) {
-          element.textContent += text.charAt(index); // Append text
+          element.textContent += text.charAt(index) // Append text
         } else {
-          element.textContent = text.substring(0, index + 1); // Replace text
+          element.textContent = text.substring(0, index + 1) // Replace text
         }
-        index++;
+        index++
       } else {
-        clearInterval(interval);
-        
+        clearInterval(interval)
+
         // Wait for a few milliseconds before resolving (so user can read)
         setTimeout(() => {
-          resolve();
-        }, delayAfterFirstText); // Delay in milliseconds
+          resolve()
+        }, delayAfterFirstText) // Delay in milliseconds
       }
-    }, speed);
-
-  });
+    }, speed)
+  })
 }
 
 // Function to wait for the spacebar to continue the animation
 function waitForSpaceBar() {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     // Event listener for spacebar
-    const onKeyPress = (event) => {
-      if (event.key === ' ') {  // Check if the spacebar is pressed
-        document.removeEventListener('keydown', onKeyPress);  // Remove listener
-        resolve();  // Continue the process
+    const onKeyPress = event => {
+      if (event.key === " ") {
+        // Check if the spacebar is pressed
+        document.removeEventListener("keydown", onKeyPress) // Remove listener
+        resolve() // Continue the process
       }
-    };
-    
+    }
+
     // Add event listener for the spacebar
-    document.addEventListener('keydown', onKeyPress);
-  });
+    document.addEventListener("keydown", onKeyPress)
+  })
 }
 
 // Animate the ASCII art line by line
 async function animateAsciiArt() {
   for (const line of name) {
-    await typeText(asciiArt, line + "\n"); // Add a newline after each line
+    await typeText(asciiArt, line + "\n") // Add a newline after each line
   }
   for (const line of intro) {
-    await typeText(introArt, line + "\n", 70, true, 1500); // Add a newline after each line
+    await typeText(introArt, line + "\n", 70, true, 1500) // Add a newline after each line
   }
 }
 
 // Start the animation
-animateAsciiArt();
+animateAsciiArt()
 
 // Sound
-var audio = document.getElementById("rainSound");
-var playPauseButton = document.getElementById("playPauseButton");
+var audio = document.getElementById("rainSound")
+var playPauseButton = document.getElementById("playPauseButton")
 
 // Start by setting the audio to be unmuted
-audio.muted = false;  // No need to set audio.paused as it's false by default
+audio.muted = false // No need to set audio.paused as it's false by default
 
 // Event listener for the play/pause/mute/unmute button
 playPauseButton.addEventListener("click", function() {
   if (audio.paused && !audio.muted) {
     // If audio is paused and unmuted, play the audio
-    audio.play();
-    playPauseButton.innerHTML = "Pause Rain";  // Change button text
-    playPauseButton.style.color = "#000";  // Set text color to white
-    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green when playing
+    audio.play()
+    playPauseButton.innerHTML = "Pause Rain" // Change button text
+    playPauseButton.style.color = "#000" // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00" // Keep the button green when playing
   } else if (!audio.paused && !audio.muted) {
     // If audio is playing and unmuted, pause the audio
-    audio.pause();
-    playPauseButton.innerHTML = "Play Rain";   // Change button text
-    playPauseButton.style.color = "#000";  // Set text color to white
-    playPauseButton.style.backgroundColor = "#00ff00"; // Reset to default green
+    audio.pause()
+    playPauseButton.innerHTML = "Play Rain" // Change button text
+    playPauseButton.style.color = "#000" // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00" // Reset to default green
   } else if (!audio.paused && audio.muted) {
     // If audio is playing but muted, unmute and keep playing
-    audio.muted = false;
-    playPauseButton.innerHTML = "Mute Rain";  // Change button text
-    playPauseButton.style.color = "#000";  // Set text color to white
-    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green
+    audio.muted = false
+    playPauseButton.innerHTML = "Mute Rain" // Change button text
+    playPauseButton.style.color = "#000" // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00" // Keep the button green
   } else if (audio.paused && audio.muted) {
     // If audio is paused and muted, unmute and play the audio
-    audio.muted = false;
-    audio.play();
-    playPauseButton.innerHTML = "Pause Rain";  // Change button text
-    playPauseButton.style.color = "#000";  // Set text color to white
-    playPauseButton.style.backgroundColor = "#00ff00"; // Keep the button green
+    audio.muted = false
+    audio.play()
+    playPauseButton.innerHTML = "Pause Rain" // Change button text
+    playPauseButton.style.color = "#000" // Set text color to white
+    playPauseButton.style.backgroundColor = "#00ff00" // Keep the button green
   }
-});
+})
 //
 //
 
 // Matrix-style background effect
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("matrix")
+const ctx = canvas.getContext("2d")
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
 
-const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()';
-const fontSize = 14;
-const columns = canvas.width/fontSize;
-const drops = [];
+const chars =
+  "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()"
+const fontSize = 14
+const columns = canvas.width / fontSize
+const drops = []
 
-for(let x = 0; x < columns; x++) drops[x] = 1;
+for (let x = 0; x < columns; x++) drops[x] = 1
 
 function drawMatrix() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  ctx.fillStyle = '#00FF00';
-  ctx.font = fontSize + 'px monospace';
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-  for(let i = 0; i < drops.length; i++) {
-    const text = chars[Math.floor(Math.random() * chars.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-    
-    if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
+  ctx.fillStyle = "#00FF00"
+  ctx.font = fontSize + "px monospace"
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)]
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize)
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0
+    drops[i]++
   }
 }
 
-setInterval(drawMatrix, 50);
+setInterval(drawMatrix, 50)
 
 // Add particles effect
-document.addEventListener('DOMContentLoaded', function() {
-  const particleCount = 50;
-  for(let i = 0; i < particleCount; i++) {
-    createParticle();
+document.addEventListener("DOMContentLoaded", function() {
+  const particleCount = 50
+  for (let i = 0; i < particleCount; i++) {
+    createParticle()
   }
-});
+})
 
 function createParticle() {
-  const particle = document.createElement('div');
-  particle.className = 'particle';
-  document.body.appendChild(particle);
-  
+  const particle = document.createElement("div")
+  particle.className = "particle"
+  document.body.appendChild(particle)
+
   // Random position and animation
-  particle.style.left = Math.random() * 100 + 'vw';
-  particle.style.animation = 
-    `float ${3 + Math.random() * 5}s linear infinite`;
-  
-  setTimeout(() => particle.remove(), 10000);
+  particle.style.left = Math.random() * 100 + "vw"
+  particle.style.animation = `float ${3 + Math.random() * 5}s linear infinite`
+
+  setTimeout(() => particle.remove(), 10000)
 }
