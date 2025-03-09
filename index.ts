@@ -25,6 +25,8 @@ There's no projects yet in the list :(
 - Bash<br>
 - Git<br>
 - HTML/CSS<br>
+- Fennel<br>
+- Lua<br>
   `,
   "cat contact": `
 Contact:<br>
@@ -40,6 +42,18 @@ Comming soon!
   "cat edu": `
 Comming soon!
   `,
+"cat tools": `
+1. <a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">Neovim</a><br>
+2. <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a><br>
+3. <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a><br>
+4. <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreferrer">Linux (Arch)</a>, 
+   <a href="https://nixos.org/" target="_blank" rel="noopener noreferrer">NixOS</a><br>
+5. <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer">Bash</a><br>
+6. <a href="https://fishshell.com/" target="_blank" rel="noopener noreferrer">Fish</a><br>
+7. <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener noreferrer">Tmux</a><br>
+8. <a href="https://www.gnu.org/software/make/" target="_blank" rel="noopener noreferrer">Make</a><br>
+9. <a href="https://cmake.org/" target="_blank" rel="noopener noreferrer">CMake</a><br>
+`,
   "cat languages": `
 Comming soon!
   `,
@@ -50,7 +64,7 @@ Comming soon!
 Comming soon!
   `,
   "cat life_motto": `
-Comming soon!
+Learn.
   `,
   "cat sysinfo": `
            .             ​       aehabdelouadoud@world<br>
@@ -70,7 +84,7 @@ arch in ~ <br>
 };
 
 // Available files/directories for autocompletion
-const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu", "languages", "learning", "working_on", "life_motto"];
+const files = ["about", "projects", "skills", "contact", "books", "sysinfo", "social", "edu", "languages", "learning", "working_on", "life_motto", "tools"];
 
 // Get DOM elements
 const input = document.getElementById("input");
